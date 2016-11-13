@@ -12,7 +12,7 @@ be as simple as claiming credit or announcing an attack. Though claiming credit 
 not proof, so it is of limited value to the attacker.
 
 ### Greed
-Any sort of free-loading. Again, can't be stopped, but can be limited.
+Free loading can't be stopped, but it can be limited.
 
 ### Spam
 Forcing content on users that they do not want.
