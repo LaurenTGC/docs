@@ -24,6 +24,11 @@ At this point, we can start to see the peer layer taking shape. We'll need a UDP
 ### Structure
 This is the proposed architecture, but it is very much in flux
 
+#### P2P
+Direct communication between overlay nodes. Used by leapfrom to pass onion
+messages or (when absolutely safe) for data that does not need the meta-data to
+be private.
+
 #### Leapfrog
 The communication layer. This encompasses onion routing and NAT traversal.
 
