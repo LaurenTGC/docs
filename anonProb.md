@@ -7,7 +7,8 @@ consider Eve, the system must be arranged in such a way that Eve cannot
 reasonably infer that Bob has the resource, even with many requests. And she
 cannot infer that Alice is the requester.
 
-### Indexing Bob could anonymously publish to a DHT that he has R. Alice could
+### Indexing
+Bob could anonymously publish to a DHT that he has R. Alice could
 aquire R by looking it up in the DHT.
 
 Let's start by looking at DHT limitations. A DHT record will have a size limit
