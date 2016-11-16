@@ -7,8 +7,9 @@ Direct communication between overlay nodes. Used by leapfrom to pass onion
 messages or (when absolutely safe) for data that does not need the meta-data to
 be private.
 
-### Leapfrog
-The communication layer. This encompasses onion routing and NAT traversal.
+### Ribut-server
+The communication layer. This encompasses Leap-frog (onion routing) and NAT
+traversal.
 
 ### Pool
 Pool will let users install Ribut software. This will have a familiar
@@ -51,6 +52,17 @@ Protocol for storing data. Provides a common interface to store information in a
 secure manor. Data is always encrypted and can be replicated. One particularly
 interesting possiblitity to use the many services that offer free accounts for
 limited storage to save shards.
+
+#### Blob Storage
+Both to aid in replication, as well as prevent fingerprinting via file size,
+blobs are not stored directly, but broken down into chunks.
+
+#### Key/Value Store
+This will be done with bolt.
+
+#### Replication/Prioirty
+Things can be tagged for replication. The higher the priority, the more copies
+will be maintained.
 
 ### DHT
 The protocol for communicating with the distributed hash table. The hash table

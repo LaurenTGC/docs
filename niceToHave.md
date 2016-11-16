@@ -23,3 +23,12 @@ networking. But it's difficult to exchange credits efficiently while maintaining
 anonymity.
 
 If we had such a system, it may help balance resources.
+
+#### Trade Cycles
+It may be possible to setup trade cycles. Say I want something (a query
+answered, to download a resource) I can send out a request. Someone with the
+ability to fulfill it can answer. We can establish a trade opportunity. These
+trade opportunities would form a directed graph. Whenever a cycle forms in that
+graph, everyone would perform the action.
+
+There's a lot of room for problems, but it may be worth looking into.
