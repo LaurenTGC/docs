@@ -1,5 +1,5 @@
 ## Nice To Have
-These are problems I don't know how to solve, but they would help the network.
+We don't know how to solve these problems, but solutions would help the network.
 
 ### Cyclic Cryptography
 See (this)[https://www.reddit.com/r/crypto/comments/40hspu/help_encryption_algorithm_with_many_keys/]

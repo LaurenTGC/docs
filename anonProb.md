@@ -1,39 +1,22 @@
 ## The Anonymous Request Problem
 
-There is a resource, R, that Alice wants. For simplicity, assume a static
-resource. Bob has that resource. How can Alice request the resource in such a
-way that Bob can fulfill the request and both of them stay anonymous. Also
-consider Eve, the system must be arranged in such a way that Eve cannot
+Alice wants a resource (we'll assume a static resource), and Bob has that resource. How can both Alice and Bob stay anonymous while requesting, and sending, resources?
+
+Also consider Eve, the system must be arranged in such a way that Eve cannot
 reasonably infer that Bob has the resource, even with many requests. And she
-cannot infer that Alice is the requester.
+cannot infer that Alice is the requester. // LC: what the what?
 
 ### Indexing
-Bob could anonymously publish to a DHT that he has R. Alice could
-aquire R by looking it up in the DHT.
+There are theoretically other methods of indexing Distributus could use, but we have focused on DHT. Bob would anonymously publish to a DHT that he has R (the static resource), then Alice would look up and then aquire R through the DHT.
 
-Let's start by looking at DHT limitations. A DHT record will have a size limit
-and a lifespan. As these increase, the functionality of the DHT increases, but
-it's reliability decreases. If the size is too large or the lifespan too long,
-the records become burdonsome to the node.
+####DHT Limitations
 
-Even if Bob puts a route in the DHT, as nodes leave, that route becomes less
-reliable. He could potentially use long-lived nodes for this. But then there's
-still the problem that Bob will eventually log off. So we balance that the
-longer the records live, the less reliable they are. Eventually, we may be able
-to find an optimal model by looking at the average amount of time that a node
-stays live.
-
-At the other end, Bob may have 10's of thousands of resources. When he logs on,
-the act of publishing them all would be substantial, as would keeping them
-refreshed. And that's where indexing really falls down. It could be potentially
-useful for a few key files that are likely to be requested, but not so useful
-for the entire catalog.
-
-There's also a "fingerprinting" issue. Lets suppose a system where Bob logs on
-and adds all of his files to an index, but the index only shows anonymous
-routes. If that system were near real-time, just the coincidence of Bob's
-overlay node appear and the files in the index appear could be used to link Bob
-to the files.
+A DHT record has a size limit, and a lifespan. Increasing either will increase functionality of the DHT, but decrease reliability. If the size is too large or the lifespan too long,
+the records are burdonsome to the node.
+* __Size Limit:__ It could be useful to index key files that are most likely to be requested, but it is not useful to index the entire catalog if Bob has tens of thousands of resources. When Bob logs on, publishing and refreshing all resources would be substantial in this case.
+* __Lifespan:__ Resources are considered less reliable as nodes leave the system, or when Bob logs off. Bob could potentially use a long-lived node to reduce the issue, but it's worth looking for an model based on the average time a node stays live. // LC: moar plz
+  
+"Fingerprinting" is also an issue if Bob logs on and adds all of his files in nearly real time. Eve could link the coincidence of Bob's overlay node and the index files to identify Bob.
 
 ### Request Publishing
 Alice can anonymously publish the request. Anyone that can fulfill the request
@@ -61,7 +44,7 @@ have any "grouping" factor, anonymity would be preferable. But maintaining those
 connections would require a lot of overhead bandwidth.
 
 ### Conclusion
-There is currently no satisfactory answer.
+There isn't a satisfactory answer yet.
 
 The least-bad option is to have a channels mechanism built on top of the DHT.
 Each overlay node will forward a request to all of it's DHT neighbors once a
@@ -72,4 +55,4 @@ Now Alice can anonymously send a request to a random DHT node. That node will
 forward the request and it will rapidly propigate through the network.
 Eventually, it should hit most of the nodes.
 
-Hopefully, someone smarter than me will find a better solution to this problem.
+We hope a few brilliant people will help find a better solution.
